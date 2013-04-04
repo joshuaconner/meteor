@@ -27,6 +27,7 @@ testAsyncMulti("accounts emails - reset password flow", [
   },
   function (test, expect) {
     Meteor.call("getInterceptedEmails", email1, expect(function (error, result) {
+      test.equal(error, undefined);
       test.notEqual(result, undefined);
       test.equal(result.length, 2); // the first is the email verification
       var content = result[1];
